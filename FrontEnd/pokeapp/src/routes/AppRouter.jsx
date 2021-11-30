@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
+import { Welcome } from '../components/Welcome'
 
 export const AppRouter = () => {
-    return (<Fragment>
-            
-
-        <h2>Hola</h2>
+    return (<>
 
 
-        </Fragment>)
+        <Welcome />
+
+
+    </>)
 }
