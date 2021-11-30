@@ -8,7 +8,7 @@ background: url('https://c.wallhere.com/photos/45/9a/1920x1200_px_nature_pokemon
 background-size: cover;
 background-attachment: fixed;
 height: 100%;
-overflow: scroll;
+//overflow: scroll;
 position: relative;
 
 .bienvenida{
@@ -79,15 +79,15 @@ export const Welcome = () => {
                         aria-controls="offcanvas"
                         className="btn-sm btn-danger shadow-sm"
                         onClick={handleRegister}
-                    >Registrate</a>
+                    >Regístrate</a>
                     <a
                         data-bs-toggle="offcanvas"
                         href="#offcanvas"
                         role="button"
                         aria-controls="offcanvas"
-                        className="btn-sm btn-primary ms-1 shadow-sm"
+                        className="btn btn-outline-primary ms-1 shadow-sm"
                         onClick={handleLogin}
-                    >Iniciar Sesion</a>
+                    >Iniciar Sesión</a>
                 </div>
 
             </div>
