@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from '../hooks/useForm';
 import md5 from 'md5'
+import { useDispatch } from 'react-redux';
+import { loginAsync } from '../actions/loginAction';
 
 const StyldedDiv = styled.div`
         
@@ -31,6 +33,7 @@ button{
 export const Login = () => {
 
     const [error, setError] = useState(null)
+    const dispatch = useDispatch()
 
     const [values, handleInputChange, reset] = useForm({
         email: '',
@@ -52,12 +55,12 @@ export const Login = () => {
                 email.toLowerCase(),
                 md5(password))
 
-            //aca haremos el dispatch
+            dispatch(loginAsync(email.toLowerCase(), md5(password)))
+            
             setError(null)
             reset();
         }
     }
-
 
     return (
         <StyldedDiv>

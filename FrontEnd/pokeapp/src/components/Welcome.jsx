@@ -44,32 +44,32 @@ export const Welcome = () => {
 
     const [register, setRegister] = useState(false)
     const [login, setLogin] = useState(false)
+    
 
     const handleLogin = () => {
         setLogin(true)
         setRegister(false)
     }
-    
+
     const handleRegister = () => {
         setRegister(true)
         setLogin(false)
     }
-    
 
     return (<StyledContainer>
 
         <div className="bienvenida rounded-3 d-flex p-3">
             <div className="card-body">
-                <img 
-                src="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                className="card-img-top" 
-                alt="pikachu" />
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/188/188918.png"
+                    className="card-img-top"
+                    alt="pikachu" />
                 <hr />
-                <img 
-                src="https://fontmeme.com/permalink/211130/3a675333ef8d5f0f0659a4ffd2b2ba38.png"
-                 width={150} 
-                 alt="fuente-pokemon" 
-                 border="0" />
+                <img
+                    src="https://fontmeme.com/permalink/211130/3a675333ef8d5f0f0659a4ffd2b2ba38.png"
+                    width={150}
+                    alt="fuente-pokemon"
+                    border="0" />
                 <p className="card-text text-center mt-1">¡Bienvenido a esta aventura!</p>
                 <div className="d-flex justify-content-center mt-4">
                     <a
