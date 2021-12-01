@@ -14,7 +14,7 @@ export const loginAsync = (email, password) => {
 
                 if (user.password === password) {
 
-                    dispatch(login(user.id, user.nombre, user.apellido, user.edad, user.correo))
+                    dispatch(login(user.id, user.nombre, user.apellido, user.edad, user.correo, user.isAdmin))
 
                 }
 
@@ -24,7 +24,7 @@ export const loginAsync = (email, password) => {
     }
 }
 
-const login = (id, nombre, apellido, edad, correo) => {
+const login = (id, nombre, apellido, edad, correo, admin) => {
     return {
         type: types.login,
         payload: {
@@ -32,7 +32,8 @@ const login = (id, nombre, apellido, edad, correo) => {
             nombre,
             apellido,
             edad,
-            correo
+            correo,
+            admin
         }
     }
 }

@@ -2,6 +2,7 @@
     "usuarios":[
         {
             "id": 1,
+            "isAdmin": false,
             "nombre": "anthony",
             "apellido": "colmenares",
             "edad": 28,

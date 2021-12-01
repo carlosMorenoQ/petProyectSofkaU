@@ -10,6 +10,7 @@ export const loginReducer = (state = {}, action) => {
                 apellido: action.payload.apellido,
                 edad: action.payload.edad,
                 correo: action.payload.correo,
+                admin: action.payload.admin
             }
 
         case types.logout:
