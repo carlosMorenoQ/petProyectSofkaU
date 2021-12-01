@@ -51,10 +51,6 @@ export const Login = () => {
 
         } else {
 
-            console.log(
-                email.toLowerCase(),
-                md5(password))
-
             dispatch(loginAsync(email.toLowerCase(), md5(password)))
             
             setError(null)

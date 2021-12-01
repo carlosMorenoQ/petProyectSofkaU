@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from '../hooks/useForm';
 import md5 from 'md5'
+import { useDispatch } from 'react-redux';
+import { registerAsync } from '../actions/registerAction';
 
 const StyldedDiv = styled.div`
         
@@ -31,6 +33,7 @@ button{
 export const Register = () => {
 
     const [error, setError] = useState(null)
+    const dispatch = useDispatch()
 
     const [values, handleInputChange, reset] = useForm({
         email: '',
@@ -44,7 +47,7 @@ export const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        
+
         if (password === '' || email === '' || nombre === '' || apellido === '' || edad === '') {
 
             setError("- Campos vacios -")
@@ -52,12 +55,16 @@ export const Register = () => {
         } else {
 
             console.log(
-                nombre.toLowerCase(), 
-                apellido.toLowerCase(), 
-                email.toLowerCase(), 
+                nombre.toLowerCase(),
+                apellido.toLowerCase(),
+                email.toLowerCase(),
                 edad, md5(password))
 
-            //aca haremos el dispatch
+            dispatch(registerAsync(nombre.toLowerCase(),
+                apellido.toLowerCase(),
+                email.toLowerCase(),
+                edad,
+                md5(password)))
             setError(null)
             reset();
         }
