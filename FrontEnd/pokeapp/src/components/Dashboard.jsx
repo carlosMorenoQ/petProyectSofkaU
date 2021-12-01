@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Swal from 'sweetalert2'
-import OffCanvas from './OffCanvas'
+import NavBar from './Navbar'
+import { PokeCard } from './PokeCard'
 
 const StyledContainer = styled.div`
 
@@ -14,10 +14,10 @@ height: 100%;
 
 
 .bienvenida{
-    position: absolute;
+    position: absolute; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -40%);
     background: #C70039;
     border: solid 1px black;
     box-shadow: 4px 2px 2px black;
@@ -65,71 +65,17 @@ export const Dashboard = () => {
 
     }, [renew])
 
-    const handleAtrapar = () => {
-        const probabilidad = Math.floor(Math.random() * (100 - 1) + 1);
-
-        if (probabilidad >= 50) {
-            Swal.fire({
-                imageUrl: pokemon.sprites.other.dream_world.front_default,
-                imageWidth: 120,
-                background: '#CBE8B0',
-                backdrop: 'rgba(17, 17, 19, 0.973)',
-                title: `Atrapaste a ${pokemon.name.toUpperCase()}`,
-                showConfirmButton: false,
-                timer: 1500
-            })
-            setRenew(renew + 1)
-        } else {
-            Swal.fire({
-                imageUrl: 'https://i.pinimg.com/originals/a5/e0/05/a5e0050eef47f9fcad910e896b180a62.png',
-                imageWidth: 200,
-                background: '#E0AFA8',
-                backdrop: 'rgba(17, 17, 19, 0.973)',
-                title: `${pokemon.name.toUpperCase()} se ha escapado`,
-                showConfirmButton: false,
-                timer: 1500
-            })
-            setRenew(renew + 1)
-        }
-    }
-
-
     return (<StyledContainer>
 
-        <div className="bienvenida rounded-3 d-flex p-3">
-            {pokemon.id === undefined ?
-                <h3>Cargando...</h3>
-                :
-                <div className="card-body">
-                    <img
-                        src={pokemon.sprites.other.dream_world.front_default}
-                        className="card-img-top"
-                        alt="pikachu" />
-                    <hr />
-                    <div className="d-flex justify-content-between mt-3">
-                        <h6 className="card-text text-center bg-warning p-1 rounded text-light">
-                            #{pokemon.id}
-                        </h6>
-                        <h6 className="card-text text-center text-light">
-                            {(pokemon.name).toUpperCase()}
-                        </h6>
-                    </div>
-                    <div className="d-flex justify-content-center mt-4">
-                        <button
-                            className="btn btn-success shadow-sm"
-                            onClick={handleAtrapar}
-                        >Atrapar</button>
-                        <button
-                            className="btn btn-outline-light ms-2 shadow-sm"
-                            onClick={() => setRenew(renew + 1)}
-                        >Dejar pasar</button>
-                    </div>
-                </div>
-            }
-        </div>
+        <NavBar />
 
-
-        <OffCanvas />
+        <PokeCard 
+        
+        renew = {renew}
+        setRenew = {setRenew}
+        pokemon = {pokemon}
+        
+        />
 
 
 

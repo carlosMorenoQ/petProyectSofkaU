@@ -16,11 +16,8 @@ export const registerAsync = (nombre, apellido, email, edad, password) => {
 
                     Swal.fire({
                         icon: 'error',
-                        background: '#E0AFA8',
                         backdrop: 'rgba(17, 17, 19, 0.973)',
                         title: `Ya existe un usuario registrado con el correo ${email}`,
-                        showConfirmButton: false,
-                        timer: 1500
                     })
 
                 } else {
@@ -47,6 +44,11 @@ const register = (nombre, apellido, email, edad, password) => {
         })
             .then(function (response) {
                 console.log(response);
+                Swal.fire({
+                    icon: 'success',
+                    backdrop: 'rgba(17, 17, 19, 0.973)',
+                    title: `el usuario ${email} ha sido registrado`,
+                })
             })
             .catch(function (error) {
                 console.log(error);

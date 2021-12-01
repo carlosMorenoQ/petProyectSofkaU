@@ -17,6 +17,15 @@
       "correo": "anthony@gmail.com",
       "password": "827ccb0eea8a706c4c34a16891f84e7b",
       "id": 2
+    },
+    {
+      "isAdmin": 0,
+      "nombre": "example",
+      "apellido": "example",
+      "edad": "12",
+      "correo": "example@example.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b",
+      "id": 3
     }
   ],
   "storage": [
