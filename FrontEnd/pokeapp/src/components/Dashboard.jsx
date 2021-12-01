@@ -4,7 +4,7 @@ import OffCanvas from './OffCanvas'
 
 const StyledContainer = styled.div`
 
-background: url('https://c.wallhere.com/photos/45/9a/1920x1200_px_nature_pokemon-1004643.jpg!d') no-repeat center center;
+background: url('https://apptrigger.com/files/2018/08/Switch_PokemonSwordPokemonShield_screen_01_png_jpgcopy.jpg') no-repeat center center;
 background-size: cover;
 background-attachment: fixed;
 height: 100%;
@@ -40,22 +40,9 @@ a{
 }
     
 `
-export const Welcome = () => {
+export const Dashboard = () => {
 
-    const [register, setRegister] = useState(false)
-    const [login, setLogin] = useState(false)
     
-
-    const handleLogin = () => {
-        setLogin(true)
-        setRegister(false)
-    }
-
-    const handleRegister = () => {
-        setRegister(true)
-        setLogin(false)
-    }
-
     return (<StyledContainer>
 
         <div className="bienvenida rounded-3 d-flex p-3">
@@ -72,29 +59,23 @@ export const Welcome = () => {
                     border="0" />
                 <p className="card-text text-center mt-1">¡Bienvenido a esta aventura!</p>
                 <div className="d-flex justify-content-center mt-4">
-                    <a
-                        data-bs-toggle="offcanvas"
-                        href="#offcanvas"
-                        role="button"
-                        aria-controls="offcanvas"
+                    <button
+                        
                         className="btn btn-danger shadow-sm"
-                        onClick={handleRegister}
-                    >Regístrate</a>
-                    <a
-                        data-bs-toggle="offcanvas"
-                        href="#offcanvas"
-                        role="button"
-                        aria-controls="offcanvas"
+                        // onClick={}
+                    >Tómalo</button>
+                    <button
+                        
                         className="btn btn-outline-primary ms-1 shadow-sm"
-                        onClick={handleLogin}
-                    >Iniciar Sesión</a>
+                        // onClick={}
+                    >Dejarlo pasar</button>
                 </div>
 
             </div>
         </div>
 
 
-        <OffCanvas register={register} login={login} />
+        <OffCanvas />
 
 
 

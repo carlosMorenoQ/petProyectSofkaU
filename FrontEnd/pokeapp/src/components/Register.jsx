@@ -71,7 +71,7 @@ export const Register = () => {
 
                 <div className="container d-flex justify-content-center">
                     <img
-                        src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png"
+                        src="https://res.cloudinary.com/df8qzqymf/image/upload/v1638371315/580b57fcd9996e24bc43c325_1_ofnsho.png"
                         alt="pikachu"
                         width={100}
                     />

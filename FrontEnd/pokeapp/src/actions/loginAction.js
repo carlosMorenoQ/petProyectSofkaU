@@ -1,7 +1,7 @@
 import { types } from '../types/types'
 import axios from 'axios'
 
-const API_URL = "http://localhost:3000/usuarios"
+const API_URL = "http://localhost:4000/usuarios"
 
 export const loginAsync = (email, password) => {
 

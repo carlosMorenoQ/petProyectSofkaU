@@ -1,13 +1,26 @@
 {
-    "usuarios":[
+    "usuarios": [
         {
             "id": 1,
-            "isAdmin": false,
+            "isAdmin": 0,
             "nombre": "anthony",
             "apellido": "colmenares",
             "edad": 28,
             "correo": "anthonycolmenares@gmail.com",
             "password": "827ccb0eea8a706c4c34a16891f84e7b"
+        }
+    ],
+    "storage": [
+        {
+            "id": 1,
+            "uId": 1,
+            "pokeId": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
         }
     ]
 }
