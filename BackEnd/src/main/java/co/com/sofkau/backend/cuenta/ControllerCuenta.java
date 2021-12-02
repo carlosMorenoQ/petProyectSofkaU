@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -24,9 +23,22 @@ public class ControllerCuenta {
         return usuarios;
     }
 
-    @PostMapping
-    public ModelCuenta save(ModelCuenta modelCuenta){
+    @PostMapping(value="/Usuario")
+        public Usuario save(@RequestBody ModelCuenta modelCuenta){
         return serviceCuenta.save(modelCuenta);
+    }
+
+    @PutMapping(value = "/Usuario")
+    public Usuario update(@RequestBody ModelCuenta modelCuenta){
+        if(modelCuenta.getId() != null){
+            return serviceCuenta.save(modelCuenta);
+        }
+        throw new RuntimeException("No existe la cuenta a actualizar");
+    }
+
+    @DeleteMapping(value = "/Usuario/Delete/{id}")
+    public void delete(@PathVariable("id")Long id){
+        serviceCuenta.delete(id);
     }
 
 }

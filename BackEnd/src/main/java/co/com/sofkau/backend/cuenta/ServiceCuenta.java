@@ -23,8 +23,10 @@ public class ServiceCuenta {
                 .collect(Collectors.toSet());
     }
 
-    public ModelCuenta save(ModelCuenta modelCuenta){
-        return repositoryCuenta.save(modelCuenta);
+    public Usuario save(ModelCuenta modelCuenta){
+        ModelCuenta modelCuenta1= repositoryCuenta.save(modelCuenta);
+        return new Usuario(modelCuenta1.getId(), modelCuenta1.getNombre(), modelCuenta1.getApellido(),
+                modelCuenta1.getEdad(), modelCuenta.getCorreo(), modelCuenta1.getPassword(), modelCuenta.getModelRol().getIdRol());
     }
 
     public void delete(Long id){

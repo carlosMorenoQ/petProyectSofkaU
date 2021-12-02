@@ -22,7 +22,7 @@ public class ModelRol {
 
     @JsonIgnore
     /*@JsonManagedReference*/
-    @OneToMany(mappedBy = "modelRol")
+    @OneToMany(mappedBy = "modelRol", cascade = CascadeType.ALL,  orphanRemoval = true)
     private List<ModelCuenta> modelCuentas;
 
     public ModelRol() {
