@@ -38,9 +38,10 @@ export const EditAdmin = (props) => {
 
 
     return (
-        <div>
-            <form onSubmit={handleEditar} className="form mx-auto container">
-                <div className="form-group mt-3 ">
+        <div className="container">
+            <h4 className="text-center">Formulario de edicion:</h4>
+            <form onSubmit={handleEditar} className=" form mx-auto container">
+                <div className="form-group mt-5 ">
                     <label htmlFor="inputEmail">
                         <strong>Correo:</strong>
                     </label>

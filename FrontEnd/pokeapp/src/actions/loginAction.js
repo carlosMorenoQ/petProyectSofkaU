@@ -21,7 +21,7 @@ export const loginAsync = (email, password) => {
                     Swal.fire({
                         icon: 'error',
                         backdrop: 'rgba(17, 17, 19, 0.973)',
-                        title: 'Contraseña o correo invalidos',
+                        title: 'Correo o contraseña invalido',
                     })
                 }
 
@@ -30,7 +30,7 @@ export const loginAsync = (email, password) => {
                 Swal.fire({
                     icon: 'error',
                     backdrop: 'rgba(17, 17, 19, 0.973)',
-                    title: 'No podemos conectarnos al servidor',
+                    title: 'Correo o contraseña invalido',
                 })
 
             )

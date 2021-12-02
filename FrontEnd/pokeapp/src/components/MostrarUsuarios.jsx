@@ -1,5 +1,7 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { deleteUser } from '../actions/crudAction'
 
 const StyldedContainer = styled.div`
 
@@ -11,15 +13,17 @@ text-align: center;
 
 export const MostrarUsuarios = (props) => {
 
+    const dispatch = useDispatch()
+
     const handleEdicion = item => {
         props.setModoEdicion(true)
         props.setUsuario(item)
         props.setId(item.id)
     }
 
-    const handleEliminarTarea = id => {
+    const handleEliminarUsuario = id => {
 
-        
+        dispatch(deleteUser(id))
 
     }
 
@@ -69,7 +73,7 @@ export const MostrarUsuarios = (props) => {
 
                             :
                             (props.usuarios).map(item => (
-                                <li className="list-group-item" key={item.id}>
+                                <li className="list-group-item rounded mt-1" key={item.id}>
                                     <div className="row">
                                         <div className="col-7 p-3">
                                             <span className="h6">{item.correo}</span>
@@ -84,7 +88,7 @@ export const MostrarUsuarios = (props) => {
                                             <div className="col-5 p-3 justify-content-center">
                                                 <button
                                                     className="btn btn-sm btn-danger "
-                                                    onClick={() => handleEliminarTarea(item.id)}
+                                                    onClick={() => handleEliminarUsuario(item.id)}
                                                 >Eliminar</button>
                                                 <button
                                                     className="btn btn-sm btn-warning ms-1"

@@ -11,10 +11,10 @@
     },
     {
       "isAdmin": 0,
-      "nombre": "jose",
-      "apellido": "perez",
-      "edad": "25",
-      "correo": "jose@gmail.com",
+      "nombre": "anthony",
+      "apellido": "colmenares",
+      "edad": "28",
+      "correo": "anthony@gmail.com",
       "password": "d41d8cd98f00b204e9800998ecf8427e",
       "id": 2
     }
