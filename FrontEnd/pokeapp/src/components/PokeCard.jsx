@@ -34,8 +34,8 @@ export const PokeCard = (props) => {
     return (<>
 
         <div className="bienvenida rounded-3 d-flex p-3 mt-3">
-            {props.pokemon.id === undefined ?
-                <h3 text-center text-light>Cargando...</h3>
+            {props.pokemon === null ?
+                <h3 className="text-center text-light">Cargando...</h3>
                 :
                 <div className="card-body">
                     <img

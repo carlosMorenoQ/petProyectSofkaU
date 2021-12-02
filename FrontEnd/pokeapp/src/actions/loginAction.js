@@ -37,3 +37,9 @@ const login = (id, nombre, apellido, edad, correo, admin) => {
         }
     }
 }
+
+export const logout = () => {
+    return {
+        type: types.logout
+    }
+}

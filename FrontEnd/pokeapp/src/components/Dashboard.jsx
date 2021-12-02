@@ -50,7 +50,7 @@ const API_URL = "https://pokeapi.co/api/v2/pokemon/"
 
 export const Dashboard = () => {
 
-    const [pokemon, setPokemon] = useState([])
+    const [pokemon, setPokemon] = useState(null)
     const [renew, setRenew] = useState(null)
 
     useEffect(() => {

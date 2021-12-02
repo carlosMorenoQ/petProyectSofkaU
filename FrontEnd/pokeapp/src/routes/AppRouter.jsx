@@ -8,6 +8,7 @@ import {
 import { Dashboard } from '../components/Dashboard'
 import PrivateRoute from './PrivateRoute'
 import { useSelector } from 'react-redux'
+import { MisPokemones } from '../components/MisPokemones';
 
 
 export const AppRouter = () => {
@@ -25,7 +26,7 @@ export const AppRouter = () => {
         <Router>
             <Switch>
 
-                <PrivateRoute auth={auth} exact path="/mis-pokemons" component={Dashboard} />
+                <PrivateRoute auth={auth} exact path="/mis-pokemones" component={MisPokemones} />
 
                 {auth ?
                     <Route exact path="/" component={Dashboard} />
