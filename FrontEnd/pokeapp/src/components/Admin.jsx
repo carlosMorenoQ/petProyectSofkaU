@@ -1,24 +1,25 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUsersAsincronico } from '../actions/crudAction'
 import { EditAdmin } from './EditAdmin'
 import { MostrarUsuarios } from './MostrarUsuarios'
 
-const URL = 'http://localhost:4000/usuarios'
 
 export const Admin = () => {
 
+  
 
     const [modoEdicion, setModoEdicion] = useState(false)
     const [usuario, setUsuario] = useState([])
-    const [usuarios, setUsuarios] = useState([])
+    const usuarios = useSelector(state => state.usuarios.usuarios)
     const [id, setId] = useState('')
     const [error, setError] = useState(null)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        axios.get(URL).then(
-            res => setUsuarios(res.data)
-        )
-    }, [])
+        dispatch(getUsersAsincronico())
+    }, [dispatch])
+
 
     return (
         <div className="container mt-5">

@@ -3,12 +3,14 @@ import { loginReducer } from '../reducers/loginReducer'
 import thunk from 'redux-thunk';
 import { guardarLocalStorage, obtenerLocalStorage } from '../localStorage';
 import { pokemonesReducer } from '../reducers/pokemonesReducer';
+import { crudReducer } from '../reducers/crudReducer';
 
 const reducers = combineReducers({
 
   login: loginReducer,
-  pokemones: pokemonesReducer
-
+  pokemones: pokemonesReducer,
+  usuarios: crudReducer
+  
 })
 
 const composeEnhancers = (typeof window !== 'undefined' &&

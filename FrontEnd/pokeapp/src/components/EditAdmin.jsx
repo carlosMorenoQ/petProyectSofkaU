@@ -1,7 +1,13 @@
+import md5 from 'md5';
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { putUser } from '../actions/crudAction';
 import { useForm } from '../hooks/useForm';
 
 export const EditAdmin = (props) => {
+
+    const dispatch = useDispatch()
+
 
     const [values, handleInputChange, reset] = useForm({
  
@@ -24,7 +30,9 @@ export const EditAdmin = (props) => {
 
     const handleEditar = (e) => {
         e.preventDefault();
+        dispatch(putUser(props.id, nombre, apellido, edad, email, md5(password)))
         props.setError(null)
+        props.setModoEdicion(false)
         reset();
     }
 
@@ -104,7 +112,7 @@ export const EditAdmin = (props) => {
 
                     <div className="form-group col-9">
                         <label htmlFor="inputPassword">
-                            <strong>Contraseña:</strong>
+                            <strong>Nueva Contraseña:</strong>
                         </label>
                         <input
                             type="password"

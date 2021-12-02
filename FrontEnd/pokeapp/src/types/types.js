@@ -4,5 +4,7 @@ export const types = {
     logout: '[LOGOUT]',
 
     obtenerPokemones: '[GET Pokemons]',
-    limpiarPokemones: '[LIMPIAR Pokemons]'
+    limpiarPokemones: '[LIMPIAR Pokemons]',
+
+    getUsuarios: '[GET users]'
 }

@@ -1,5 +1,6 @@
 import { types } from '../types/types'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const API_URL = "http://localhost:4000/usuarios"
 
@@ -16,10 +17,23 @@ export const loginAsync = (email, password) => {
 
                     dispatch(login(user.id, user.nombre, user.apellido, user.edad, user.correo, user.isAdmin))
 
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        backdrop: 'rgba(17, 17, 19, 0.973)',
+                        title: 'Contraseña o correo invalidos',
+                    })
                 }
 
             })
-            .catch(error => console.log(error))
+            .catch(() =>
+                Swal.fire({
+                    icon: 'error',
+                    backdrop: 'rgba(17, 17, 19, 0.973)',
+                    title: 'No podemos conectarnos al servidor',
+                })
+
+            )
 
     }
 }

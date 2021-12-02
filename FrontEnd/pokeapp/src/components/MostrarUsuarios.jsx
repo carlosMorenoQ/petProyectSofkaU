@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyldedContainer = styled.div`
-        
+
 display: flex;
 justify-content: center;
 color: #8d8f8f;
@@ -19,8 +19,8 @@ export const MostrarUsuarios = (props) => {
 
     const handleEliminarTarea = id => {
 
-        //disparo el action delete enviandole el ID
-        // props.dispatch(deletear(id));
+        
+
     }
 
     return (

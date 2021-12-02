@@ -11,21 +11,12 @@
     },
     {
       "isAdmin": 0,
-      "nombre": "antonio",
-      "apellido": "contreras",
-      "edad": "30",
-      "correo": "anthony@gmail.com",
-      "password": "827ccb0eea8a706c4c34a16891f84e7b",
+      "nombre": "jose",
+      "apellido": "perez",
+      "edad": "25",
+      "correo": "jose@gmail.com",
+      "password": "d41d8cd98f00b204e9800998ecf8427e",
       "id": 2
-    },
-    {
-      "isAdmin": 0,
-      "nombre": "example",
-      "apellido": "example",
-      "edad": "12",
-      "correo": "example@example.com",
-      "password": "827ccb0eea8a706c4c34a16891f84e7b",
-      "id": 3
     }
   ],
   "storage": [
