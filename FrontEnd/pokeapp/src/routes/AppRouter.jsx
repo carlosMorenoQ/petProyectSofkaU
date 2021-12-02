@@ -22,7 +22,6 @@ export const AppRouter = () => {
         auth = true
     }
 
-
     if (user && user.admin === 1) {
         authAdmin = true
     }
