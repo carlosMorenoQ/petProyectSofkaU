@@ -1,40 +1,26 @@
-package co.com.sofkau.backend.cuenta;
+package co.com.sofkau.backend.dto;
 
-import co.com.sofkau.backend.rol.ModelRol;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+public class Usuario {
 
-import javax.persistence.*;
-
-@Entity
-@Table(name="cuenta")
-public class ModelCuenta {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_cuenta")
     private Long id;
-
-    @Column(name="nombre_cuenta")
     private String nombre;
-
-    @Column(name="apellido_cuenta")
     private String apellido;
-
-    @Column(name="edad_cuenta")
     private Long edad;
-
-    @Column(name="correo_cuenta")
     private String correo;
-
-    @Column(name="password_cuenta")
     private String password;
+    private Long rol;
 
-/*    @JsonBackReference*/
-    @ManyToOne
-    @JoinColumn(name="id_rol")
-    private ModelRol modelRol;
+    public Usuario() {
+    }
 
-    public ModelCuenta() {
+    public Usuario(Long id, String nombre, String apellido, Long edad, String correo, String password, Long rol) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.correo = correo;
+        this.password = password;
+        this.rol = rol;
     }
 
     public Long getId() {
@@ -85,11 +71,11 @@ public class ModelCuenta {
         this.password = password;
     }
 
-    public ModelRol getModelRol() {
-        return modelRol;
+    public Long getRol() {
+        return rol;
     }
 
-    public void setModelRol(ModelRol modelRol) {
-        this.modelRol = modelRol;
+    public void setRol(Long rol) {
+        this.rol = rol;
     }
 }
