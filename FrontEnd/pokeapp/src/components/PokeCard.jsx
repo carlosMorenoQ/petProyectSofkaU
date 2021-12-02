@@ -33,7 +33,7 @@ export const PokeCard = (props) => {
 
     return (<>
 
-        <div className="bienvenida rounded-3 d-flex p-3 mt-3">
+        <div className="bienvenida d-flex p-2 mt-3">
             {props.pokemon === null ?
                 <h3 className="text-center text-light">Cargando...</h3>
                 :
@@ -59,7 +59,7 @@ export const PokeCard = (props) => {
                         <button
                             className="btn btn-outline-light ms-2 shadow-sm"
                             onClick={() => props.setRenew(props.renew + 1)}
-                        >Dejar pasar</button>
+                        >Dejar</button>
                     </div>
                 </div>
             }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { obtenerPokemonesAsync } from '../actions/pokemonesAction'
 import MiPokeCard from './MiPokeCard'
+import NavBar from './Navbar'
 
 const StyledContainer = styled.div`
 
@@ -35,15 +36,18 @@ export const MisPokemones = () => {
 
     useEffect(() => {
 
-            dispatch(obtenerPokemonesAsync(user.id))
+        dispatch(obtenerPokemonesAsync(user.id))
 
     }, [dispatch, user])
 
     return (<StyledContainer>
+
+        <NavBar />
+        
         <ul className="imagenGrid">
             {pokemon &&
                 pokemon.map(id =>
-                    <MiPokeCard key={id} id={id}/>
+                    <MiPokeCard key={id} id={id} />
                 )
             }
         </ul>

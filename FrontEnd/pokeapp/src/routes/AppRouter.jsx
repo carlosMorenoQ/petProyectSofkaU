@@ -9,17 +9,23 @@ import { Dashboard } from '../components/Dashboard'
 import PrivateRoute from './PrivateRoute'
 import { useSelector } from 'react-redux'
 import { MisPokemones } from '../components/MisPokemones';
+import { Admin } from '../components/Admin';
 
 
 export const AppRouter = () => {
 
-    const user = useSelector(store => store.login.id)
+    const user = useSelector(store => store.login)
     let auth = false;
+    let authAdmin = false;
 
-    user ?
+    if (user.id) {
         auth = true
-        :
-        auth = false
+    }
+
+
+    if (user && user.admin === 1) {
+        authAdmin = true
+    }
 
     return (<>
 
@@ -28,6 +34,7 @@ export const AppRouter = () => {
 
                 <PrivateRoute auth={auth} exact path="/mis-pokemones" component={MisPokemones} />
 
+                <PrivateRoute auth={authAdmin} exact path="/admin" component={Admin} />
                 {auth ?
                     <Route exact path="/" component={Dashboard} />
                     :

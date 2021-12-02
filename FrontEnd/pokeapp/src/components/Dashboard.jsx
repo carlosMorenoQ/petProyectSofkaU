@@ -17,10 +17,11 @@ height: 100%;
     position: absolute; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
     background: #C70039;
     border: solid 1px black;
     box-shadow: 4px 2px 2px black;
+    border-radius: 20px 0;
 }
 
 a{
@@ -35,16 +36,10 @@ a{
     width: 120px;
     background: white;
     padding: 20px;
-    border: solid 2px black;
-    border-radius: 50px;
+    border: solid 1px black;
+    border-radius: 20px 0;
 }
 
-@media (min-width: 600px) {
-    .card-img-top{
-        width: 180px;
-    }
-}
-    
 `
 const API_URL = "https://pokeapi.co/api/v2/pokemon/"
 
