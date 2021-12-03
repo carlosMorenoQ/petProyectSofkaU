@@ -41,3 +41,21 @@ https://res.cloudinary.com/df8qzqymf/image/upload/v1638510574/CRUDPokemonPet_en8
 ## Despliegue rutas privadas:
 
 https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gif
+
+## Imagenes:
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura2_yw0est.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura3_qjv4lr.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511634/Captura4_hl0ku6.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura5_zltdrz.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511634/Captura7_kon5gm.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura8_ql3eus.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura8_ql3eus.png)
+
+![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura9_culfkm.png)
