@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepositoryStorage extends CrudRepository<ModelStorage, Long> {
 
-    Iterable<ModelStorage> findAllByModelCuentas(ModelCuenta modelCuenta);
+    Iterable<ModelStorage> findAllByModelCuenta(ModelCuenta modelCuenta);
 
 }

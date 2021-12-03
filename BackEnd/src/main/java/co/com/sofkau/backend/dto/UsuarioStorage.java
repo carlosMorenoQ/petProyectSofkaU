@@ -4,40 +4,26 @@ import java.util.List;
 
 public class UsuarioStorage {
 
-    private Integer id;
-    private Integer uId;
-    private Integer pokeId;
+    private Long usuarioId;
+    private Long[] pokeId;
 
-    public UsuarioStorage() {
+    public UsuarioStorage(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
-    public UsuarioStorage(Integer id, Integer uId, Integer pokeId) {
-        this.id = id;
-        this.uId = uId;
-        this.pokeId = pokeId;
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
-    public Integer getId() {
-        return id;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getuId() {
-        return uId;
-    }
-
-    public void setuId(Integer uId) {
-        this.uId = uId;
-    }
-
-    public Integer getPokeId() {
+    public Long[] getPokeId() {
         return pokeId;
     }
 
-    public void setPokeId(Integer pokeId) {
+    public void setPokeId(Long[] pokeId) {
         this.pokeId = pokeId;
     }
 }

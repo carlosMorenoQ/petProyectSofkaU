@@ -24,9 +24,10 @@ public class ServiceCuenta {
     }
 
     public Usuario save(ModelCuenta modelCuenta){
+        Long idRolBeforeUpdating = modelCuenta.getModelRol().getIdRol();
         ModelCuenta modelCuenta1= repositoryCuenta.save(modelCuenta);
         return new Usuario(modelCuenta1.getId(), modelCuenta1.getNombre(), modelCuenta1.getApellido(),
-                modelCuenta1.getEdad(), modelCuenta.getCorreo(), modelCuenta1.getPassword(), modelCuenta.getModelRol().getIdRol());
+                modelCuenta1.getEdad(), modelCuenta.getCorreo(), modelCuenta1.getPassword(),idRolBeforeUpdating);
     }
 
     public void delete(Long id){

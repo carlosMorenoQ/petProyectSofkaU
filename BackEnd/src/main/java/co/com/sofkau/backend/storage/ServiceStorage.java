@@ -2,13 +2,12 @@ package co.com.sofkau.backend.storage;
 
 import co.com.sofkau.backend.cuenta.ModelCuenta;
 import co.com.sofkau.backend.dto.UsuarioStorage;
-import co.com.sofkau.backend.rol.ModelRol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.Objects;
 
 @Service
 public class ServiceStorage {
@@ -20,20 +19,33 @@ public class ServiceStorage {
         return repositoryStorage.findAll();
     }
 
-    public Iterable<ModelStorage> listByUsuario() {
-        ModelCuenta modelCuenta = new ModelCuenta(2l);
-//        return StreamSupport
-//                .stream(repositoryStorage.findAllByModelCuentas(modelCuenta).spliterator(),false)
-//                .map(modelStorage -> new UsuarioStorage(modelStorage.getIdStorage(),modelStorage.getModelCuentas().getId(),modelStorage.getPokeId()).collect(Collectors.toSet());
-        return repositoryStorage.findAllByModelCuentas(modelCuenta);
+    public UsuarioStorage listByUsuario(Long idUsuario) {
+        ModelCuenta modelCuenta = new ModelCuenta(idUsuario);
+        UsuarioStorage usuarioStorage = new UsuarioStorage(idUsuario);
+        Long[] pokeIDs;
+        List<Long> colectorPokeIDs = new ArrayList<>();
+        for (ModelStorage storage : repositoryStorage.findAllByModelCuenta(modelCuenta)) {
+            colectorPokeIDs.add(storage.getPokeId());
+        }
+        pokeIDs = new Long[colectorPokeIDs.size()];
+        pokeIDs = colectorPokeIDs.toArray(pokeIDs);
+        usuarioStorage.setPokeId(pokeIDs);
+        return usuarioStorage;
     }
 
-    public ModelStorage save(ModelStorage modelStorage) {
-        return repositoryStorage.save(modelStorage);
+    public UsuarioStorage save(ModelStorage modelStorage) {
+        repositoryStorage.save(modelStorage);
+        return listByUsuario(modelStorage.getModelCuenta().getId());
     }
 
-    public void delete(Long id) {
-        repositoryStorage.delete(get(id));
+    public void delete(Long idPokemon, Long idUsuario) {
+        ModelCuenta modelCuenta = new ModelCuenta(idUsuario);
+        for (ModelStorage storage : repositoryStorage.findAllByModelCuenta(modelCuenta)) {
+            if (Objects.equals(storage.getPokeId(), idPokemon)){
+                repositoryStorage.delete(get(storage.getIdStorage()));
+                break;
+            }
+        }
     }
 
     public ModelStorage get(Long id) {

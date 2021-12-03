@@ -1,7 +1,6 @@
 package co.com.sofkau.backend.cuenta;
 
 import co.com.sofkau.backend.dto.Usuario;
-import co.com.sofkau.backend.rol.ModelRol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

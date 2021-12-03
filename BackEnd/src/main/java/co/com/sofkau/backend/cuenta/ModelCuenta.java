@@ -2,11 +2,10 @@ package co.com.sofkau.backend.cuenta;
 
 import co.com.sofkau.backend.rol.ModelRol;
 import co.com.sofkau.backend.storage.ModelStorage;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -40,7 +39,7 @@ public class ModelCuenta {
 
     @JsonIgnore
 //    @JsonManagedReference
-    @OneToMany(mappedBy = "modelCuentas", cascade = CascadeType.ALL,  orphanRemoval = true)
+    @OneToMany(mappedBy = "modelCuenta", cascade = CascadeType.ALL,  orphanRemoval = true)
     private List<ModelStorage> modelStorage;
 
     public ModelCuenta() {
@@ -104,5 +103,13 @@ public class ModelCuenta {
 
     public void setModelRol(ModelRol modelRol) {
         this.modelRol = modelRol;
+    }
+
+    public List<ModelStorage> getModelStorage() {
+        return modelStorage;
+    }
+
+    public void setModelStorage(List<ModelStorage> modelStorage) {
+        this.modelStorage = modelStorage;
     }
 }

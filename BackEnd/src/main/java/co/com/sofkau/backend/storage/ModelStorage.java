@@ -1,11 +1,8 @@
 package co.com.sofkau.backend.storage;
 
 import co.com.sofkau.backend.cuenta.ModelCuenta;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "storage")
@@ -22,7 +19,7 @@ public class ModelStorage {
 //    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="id_cuenta")
-    private ModelCuenta modelCuentas;
+    private ModelCuenta modelCuenta;
 
 
     public ModelStorage() {
@@ -44,12 +41,12 @@ public class ModelStorage {
         this.pokeId = pokeId;
     }
 
-    public ModelCuenta getModelCuentas() {
-        return modelCuentas;
+    public ModelCuenta getModelCuenta() {
+        return modelCuenta;
     }
 
-    public void setModelCuentas(ModelCuenta modelCuentas) {
-        this.modelCuentas = modelCuentas;
+    public void setModelCuenta(ModelCuenta modelCuentas) {
+        this.modelCuenta = modelCuentas;
     }
 
 }
