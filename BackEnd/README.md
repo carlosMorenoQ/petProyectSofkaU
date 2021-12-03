@@ -17,7 +17,7 @@ se presentan tutoriales para estas configuraciones:
 
 partiendo de esto se mostraran las configuraciones 
 
-# Configurar proyecto para despliegue
+# Configuracion del proyecto
 
 
 ## Configurar WorkBench 
