@@ -56,6 +56,4 @@ https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gi
 
 ![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura8_ql3eus.png)
 
-![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura8_ql3eus.png)
-
 ![Despliegue](https://res.cloudinary.com/df8qzqymf/image/upload/v1638511633/Captura9_culfkm.png)
