@@ -5,6 +5,9 @@ export const types = {
 
     obtenerPokemones: '[GET Pokemons]',
     limpiarPokemones: '[LIMPIAR Pokemons]',
+    addPokemon: '[AGREGA Pokemon]',
+    deletePokemon: '[BORRAR Pokemon]',
 
-    getUsuarios: '[GET users]'
+    getUsuarios: '[GET users]',
+
 }

@@ -15,7 +15,7 @@
       "apellido": "colmenares",
       "edad": "28",
       "correo": "anthony@gmail.com",
-      "password": "d41d8cd98f00b204e9800998ecf8427e",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b",
       "id": 2
     }
   ],
@@ -26,10 +26,7 @@
       "pokeId": [
         1,
         2,
-        3,
-        4,
-        5,
-        6
+        3
       ]
     }
   ]

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { obtenerPokemonesAsync } from '../actions/pokemonesAction'
 import NavBar from './Navbar'
 import { PokeCard } from './PokeCard'
 
@@ -45,8 +47,11 @@ const API_URL = "https://pokeapi.co/api/v2/pokemon/"
 
 export const Dashboard = () => {
 
+    const user = useSelector(store => store.login)
     const [pokemon, setPokemon] = useState(null)
     const [renew, setRenew] = useState(null)
+    const dispatch = useDispatch()
+  
 
     useEffect(() => {
 
@@ -59,6 +64,12 @@ export const Dashboard = () => {
             .catch(error => console.log(error))
 
     }, [renew])
+
+    useEffect(() => {
+
+        dispatch(obtenerPokemonesAsync(user.id))
+
+    }, [dispatch, user])
 
     return (<StyledContainer>
 
