@@ -2,7 +2,7 @@
 
 ## Descripcion:
 
-Se realizo una aplicacion de pokemon, el fin es registrarse, iniciar secion y coleccionar pokemones
+Se realizo una aplicacion de pokemoncon el fin de registrarse, iniciar sesion y coleccionar pokemones
 podemos verificar los pokemones que tenemos almacenados, los pokemones se generan al azar y a la vez
 tienen una probabilidad para atraparlos, si ademas mi storage o pokedex tiene 6 pokemones no podremos
 atrapar mas, a menos que liberemos algun pokemon.
@@ -30,12 +30,12 @@ manejo de los estados globales y consumo de la API-Rest tambien se validaron rut
 
 ##Despliegue CRUD Usuarios:
 
-![Alt Text](https://res.cloudinary.com/df8qzqymf/image/upload/v1638510560/CRUDUserPet_u3fhlv.gif)
+https://res.cloudinary.com/df8qzqymf/image/upload/v1638510560/CRUDUserPet_u3fhlv.gif
 
 ##Despliegue mini-CRUD Pokemones:
 
-![Alt Text](https://res.cloudinary.com/df8qzqymf/image/upload/v1638510574/CRUDPokemonPet_en82hy.gif)
+https://res.cloudinary.com/df8qzqymf/image/upload/v1638510574/CRUDPokemonPet_en82hy.gif
 
 ##Despliegue rutas privadas:
 
-![Alt Text](https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gif)
+https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gif
