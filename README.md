@@ -30,17 +30,16 @@ y spring-boot.
 El frontend se centro en el consumo de esta API, se crearon las UI y UX usando React y Redux para el
 manejo de los estados globales y consumo de la API-Rest, tambien se validaron rutas privadas.
 
-## Despliegue CRUD Usuarios:
+## Paso a paso de despliegues de manera local:
 
-https://res.cloudinary.com/df8qzqymf/image/upload/v1638510560/CRUDUserPet_u3fhlv.gif
+* [Desplegar de manera local el Back-End](https://github.com/carlosMorenoQ/petProyectSofkaU/tree/main/BackEnd#readme)
+* [Desplegar de manera local el Front-End](https://github.com/carlosMorenoQ/petProyectSofkaU/tree/main/FrontEnd#readme)
 
-## Despliegue mini-CRUD Pokemones:
+## Muestra de funcionalidades:
 
-https://res.cloudinary.com/df8qzqymf/image/upload/v1638510574/CRUDPokemonPet_en82hy.gif
-
-## Despliegue rutas privadas:
-
-https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gif
+* [Muestra funcionalidad CRUD Usuarios](https://res.cloudinary.com/df8qzqymf/image/upload/v1638510560/CRUDUserPet_u3fhlv.gif)
+* [Muestra funcionalidad mini-CRUD Pokemones](https://res.cloudinary.com/df8qzqymf/image/upload/v1638510574/CRUDPokemonPet_en82hy.gif)
+* [Muestra funcionalidad rutas privadas](https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gif)
 
 ## Imagenes:
 
