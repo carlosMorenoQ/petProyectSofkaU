@@ -12,10 +12,10 @@ export const PokeCard = (props) => {
 
         const probabilidad = Math.floor(Math.random() * (100 - 1) + 1);
 
-        if (pokedex.pokeId) {
+        if (!pokedex.pokeId) {
 
             if (probabilidad >= 50) {
-                dispatch(putPokemon(pokedex.id, pokedex.pokeId, pokemonId))
+                // dispatch(putPokemon(pokedex.id, pokedex.pokeId, pokemonId))
                 Swal.fire({
                     imageUrl: 'https://res.cloudinary.com/df8qzqymf/image/upload/v1638485977/dadhznk-3a51975c-49a0-4049-97e9-1eee7e8517d9_k0tvpk.png',
                     imageWidth: 300,
