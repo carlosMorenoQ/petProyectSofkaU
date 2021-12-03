@@ -28,14 +28,14 @@ y spring-boot.
 El frontend se centro en el consumo de esta API, se crearon las UI y UX usando React y Redux para el
 manejo de los estados globales y consumo de la API-Rest tambien se validaron rutas privadas.
 
-##Despliegue CRUD Usuarios:
+## Despliegue CRUD Usuarios:
 
 https://res.cloudinary.com/df8qzqymf/image/upload/v1638510560/CRUDUserPet_u3fhlv.gif
 
-##Despliegue mini-CRUD Pokemones:
+## Despliegue mini-CRUD Pokemones:
 
 https://res.cloudinary.com/df8qzqymf/image/upload/v1638510574/CRUDPokemonPet_en82hy.gif
 
-##Despliegue rutas privadas:
+## Despliegue rutas privadas:
 
 https://res.cloudinary.com/df8qzqymf/image/upload/v1638510585/RutasPet_wyollk.gif
