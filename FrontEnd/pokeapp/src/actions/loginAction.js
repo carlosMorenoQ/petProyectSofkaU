@@ -2,7 +2,7 @@ import { types } from '../types/types'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const API_URL = "http://localhost:4000/usuarios"
+const API_URL = "http://localhost:8080/Usuarios"
 
 export const loginAsync = (email, password) => {
 
@@ -11,11 +11,11 @@ export const loginAsync = (email, password) => {
         axios.get(API_URL)
             .then(res => {
 
-                const user = res.data.find(dato => dato.correo === email)
+                const user = res.data.usuarios.find(dato => dato.correo === email)
 
                 if (user.password === password) {
 
-                    dispatch(login(user.id, user.nombre, user.apellido, user.edad, user.correo, user.isAdmin))
+                    dispatch(login(user.id, user.nombre, user.apellido, user.edad, user.correo, user.rol))
 
                 }else{
                     Swal.fire({

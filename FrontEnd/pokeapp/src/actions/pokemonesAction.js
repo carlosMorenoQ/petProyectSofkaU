@@ -1,23 +1,15 @@
 import { types } from '../types/types'
 import axios from 'axios'
-import Swal from 'sweetalert2'
 
-const API_URL = "http://localhost:4000/storage/"
+const API_URL = "http://localhost:8080/Storage/"
 
 export const obtenerPokemonesAsync = (id) => {
 
     return async (dispatch) => {
 
-        axios.get(API_URL)
+        axios.get(API_URL + id)
             .then(res => {
-
-                const pokemones = res.data.find(dato => dato.uId === id)
-
-                if (pokemones) {
-
-                    dispatch(obtenerPokemones(pokemones.id, pokemones.pokeId))
-
-                }
+                dispatch(obtenerPokemones(res.data.usuarioId, res.data.pokeId))
 
             })
             .catch(error => console.log(error))
@@ -41,87 +33,30 @@ export const limpiarPokemones = () => {
     }
 }
 
-export const postPokedex = (pokeId, uId) => {
-    return async () => {
-        axios.post(API_URL, {
-            uId: uId,
-            pokeId: [pokeId],
+export const postPokemon = (uId, pokeId) => {
+
+    return async (dispatch) => {
+        axios.post(API_URL + "savePokemon", {
+            idStorage: null,
+            pokeId: pokeId,
+            modelCuenta: uId
         })
-            .then(function (response) {
-                console.log(response);
+            .then(function () {
+                dispatch(obtenerPokemonesAsync(uId))
             })
             .catch(function (error) {
-                console.log("fetch error")
+                console.log(error)
             });
     }
 }
 
-export const putPokemon = (id, pokemones, pokeId) => {
 
-    const pokeModificado = [...pokemones, pokeId]
-    console.log(id)
-    console.log(pokeModificado)
-
+export const deletePokemon = (id, pokeId) => {
     return async (dispatch) => {
-        fetch(URL + id, {
-            method: "PUT",
-            body: JSON.stringify(
-                {   
-                    pokeId: pokeModificado
-                }
+        axios.delete(API_URL+`Delete/${pokeId}/${id}`)
+            .then(() => dispatch(obtenerPokemonesAsync(id)))
+            .catch((error) => console.log(error))
 
-            ),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(response => response.json())
-
-            .then(() => {
-
-                console.log("exito")
-
-                dispatch(obtenerPokemones())
-            })
-            .catch((error) =>
-
-                console.log(error)
-
-            )
-    }
-}
-
-export const deletePokemon = (id, pokemones, pokeId) => {
-
-    const pokeModificado = pokemones.filter(elemento => elemento !== pokeId)
-
-    return async (dispatch) => {
-        fetch(URL + id, {
-            method: "PUT",
-            body: JSON.stringify(
-                {
-                    pokeId: pokeModificado,
-                    id: id
-                }
-
-            ),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(response => response.json())
-
-            .then(() => {
-
-                console.log("exito")
-
-                dispatch(obtenerPokemones())
-            })
-            .catch(() =>
-
-                console.log("fetch error")
-
-            )
     }
 
 }

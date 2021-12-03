@@ -47,7 +47,11 @@ export const MisPokemones = () => {
         <ul className="imagenGrid">
             {pokemon &&
                 pokemon.map(id =>
-                    <MiPokeCard key={id} id={id} />
+                    <MiPokeCard 
+                    key={id} 
+                    id={id} 
+                    userId = {user.id}
+                    />
                 )
             }
         </ul>

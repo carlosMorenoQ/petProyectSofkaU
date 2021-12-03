@@ -1,15 +1,15 @@
 import { types } from '../types/types'
 import Swal from 'sweetalert2'
 
-const URL = 'http://localhost:4000/usuarios/'
+const URL = 'http://localhost:8080/Usuario'
 
 
 export const getUsersAsincronico = () => {
 
     return async (dispatch) => {
-        fetch(URL)
+        fetch('http://localhost:8080/Usuarios')
             .then(response => response.json())
-            .then(usuarios => dispatch(get(usuarios)))
+            .then(usuarios => dispatch(get(usuarios.usuarios)))
     }
 }
 
@@ -21,11 +21,10 @@ export const get = (users) => {
     }
 }
 
-
 export const deleteUser = (id) => {
 
     return async (dispatch) => {
-        fetch(URL + id, {
+        fetch(URL + `/Delete/${id}`, {
             method: "DELETE"
         }).then(() => {
             Swal.fire({
@@ -49,22 +48,20 @@ export const deleteUser = (id) => {
     }
 }
 
-
-
 export const putUser = (id, nombre, apellido, edad, correo, password) => {
 
     return async (dispatch) => {
-        fetch(URL + id, {
+        fetch(URL, {
             method: "PUT",
             body: JSON.stringify(
                 {
-                    isAdmin: 0,
+                    id: id,
                     nombre: nombre,
                     apellido: apellido,
                     edad: edad,
                     correo: correo,
                     password: password,
-                    id: id,
+                    modelRol: 0
                 }
 
             ),

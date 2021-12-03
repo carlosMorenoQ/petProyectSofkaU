@@ -1,21 +1,31 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
-import { putPokemon } from '../actions/pokemonesAction'
+import { postPokemon } from '../actions/pokemonesAction'
 
 export const PokeCard = (props) => {
 
     const pokedex = useSelector(store => store.pokemones)
+    const user = useSelector(store => store.login)
     const dispatch = useDispatch()
- 
+
     const handleAtrapar = (pokemonId) => {
 
         const probabilidad = Math.floor(Math.random() * (100 - 1) + 1);
 
-        if (!pokedex.pokeId) {
-
+        if (pokedex.pokeId.length >= 6) {
+            Swal.fire({
+                imageUrl: 'https://img.icons8.com/color/480/pokedex.png',
+                imageWidth: 250,
+                background: '#E0AFA8',
+                backdrop: 'rgba(17, 17, 19, 0.973)',
+                title: '"no tienes espacio en la Pokedex"',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        } else {
             if (probabilidad >= 50) {
-                // dispatch(putPokemon(pokedex.id, pokedex.pokeId, pokemonId))
+                dispatch(postPokemon(user.id, pokemonId))
                 Swal.fire({
                     imageUrl: 'https://res.cloudinary.com/df8qzqymf/image/upload/v1638485977/dadhznk-3a51975c-49a0-4049-97e9-1eee7e8517d9_k0tvpk.png',
                     imageWidth: 300,
@@ -38,16 +48,6 @@ export const PokeCard = (props) => {
                 })
                 props.setRenew(props.renew + 1)
             }
-        } else if (pokedex.pokeId.length >= 6) {
-            Swal.fire({
-                imageUrl: 'https://img.icons8.com/color/480/pokedex.png',
-                imageWidth: 250,
-                background: '#E0AFA8',
-                backdrop: 'rgba(17, 17, 19, 0.973)',
-                title: '"no tienes espacio en la Pokedex"',
-                showConfirmButton: false,
-                timer: 1500
-            })
         }
     }
 
@@ -74,7 +74,7 @@ export const PokeCard = (props) => {
                     <div className="d-flex justify-content-center mt-4">
                         <button
                             className="btn btn-success shadow-sm"
-                            onClick={()=>handleAtrapar(props.pokemon.id)}
+                            onClick={() => handleAtrapar(props.pokemon.id)}
                         >Atrapar</button>
                         <button
                             className="btn btn-outline-light ms-2 shadow-sm"

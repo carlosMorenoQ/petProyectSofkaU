@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { deletePokemon } from '../actions/pokemonesAction'
+import Swal from 'sweetalert2'
 
-const URL ='https://pokeapi.co/api/v2/pokemon/'
+const URL = 'https://pokeapi.co/api/v2/pokemon/'
 
 const StyledDiv = styled.div`
 
@@ -69,6 +72,10 @@ const StyledDiv = styled.div`
         color: white;
     }
 
+    .delete:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }
  
     @media (min-width: 600px) {
 
@@ -92,13 +99,38 @@ const StyledDiv = styled.div`
 export default function MiPokeCard(props) {
 
     const [pokemon, setPokemon] = useState(null);
+    const dispatch = useDispatch()
 
     useEffect(() => {
 
-        axios.get(URL+props.id)
+        axios.get(URL + props.id)
             .then(res => setPokemon(res.data))
 
     }, [props.id]);
+
+    const handleDelete = (pokeId, pokename, pokeimagen) => {
+        Swal.fire({
+            title: `¿Quieres liberar a ${pokename.toUpperCase()}?`,
+            background: '#E0AFA8',
+            imageUrl: pokeimagen,
+            imageWidth: 250,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            backdrop: 'rgba(17, 17, 19, 0.973)',
+            confirmButtonText: 'Si, liberarlo'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(deletePokemon(props.userId, pokeId))
+                Swal.fire(
+                    '¡Liberado!',
+                    `${pokename.toUpperCase()} se ha ido`,
+                    'success'
+                )
+            }
+        })
+    }
+
 
     return (<StyledDiv>
         {pokemon &&
@@ -106,15 +138,21 @@ export default function MiPokeCard(props) {
 
                 <div className="cont">
 
-                    <img 
-                    width={140} 
-                    height={150} 
-                    className="imagen" 
-                    src={pokemon.sprites.front_default} 
-                    alt={pokemon.name} />
-                
+                    <img
+                        width={140}
+                        height={150}
+                        className="imagen"
+                        src={pokemon.sprites.front_default}
+                        alt={pokemon.name} />
+
                     <div className="cont2">
-                        <h4 className="text-primary">⦿</h4>
+                        <h4
+                            onClick={
+                                () => 
+                                handleDelete(pokemon.id, pokemon.name, pokemon.sprites.front_default)
+                            }
+                            className="text-warning delete"
+                        >✘</h4>
                         <h4 className="text-dark">⊙</h4>
                     </div>
                 </div>
@@ -128,8 +166,8 @@ export default function MiPokeCard(props) {
 
                 <div className="titulo2">
                     <h5 className="text-dark">Type: </h5>
-                    < span className="fw-bold"> 
-                    {pokemon.types.map(tipos => tipos.type.name).join("\n")}
+                    < span className="fw-bold">
+                        {pokemon.types.map(tipos => tipos.type.name).join("\n")}
                     </span>
                 </div>
 

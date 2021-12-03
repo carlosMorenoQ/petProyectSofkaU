@@ -1,16 +1,16 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const API_URL = "http://localhost:4000/usuarios"
+const API_URL = "http://localhost:8080/Usuario"
 
 export const registerAsync = (nombre, apellido, email, edad, password) => {
 
     return async (dispatch) => {
 
-        axios.get(API_URL)
+        axios.get(API_URL+'s')
             .then(res => {
-
-                const user = res.data.find(dato => dato.correo === email)
+    
+                const user = res.data.usuarios.find(dato => dato.correo === email)
 
                 if (user) {
 
@@ -35,7 +35,8 @@ const register = (nombre, apellido, email, edad, password) => {
 
     return async () => {
         axios.post(API_URL, {
-            isAdmin: 0,
+            id: null,
+            modelRol: 0,
             nombre: nombre,
             apellido: apellido,
             edad: edad,

@@ -39,7 +39,7 @@ public class ModelCuenta {
 
     @JsonIgnore
 //    @JsonManagedReference
-    @OneToMany(mappedBy = "modelCuenta", cascade = CascadeType.ALL,  orphanRemoval = true)
+    @OneToMany(mappedBy = "modelCuenta", cascade = CascadeType.ALL)
     private List<ModelStorage> modelStorage;
 
     public ModelCuenta() {

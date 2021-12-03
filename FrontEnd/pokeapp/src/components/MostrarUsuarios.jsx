@@ -79,7 +79,7 @@ export const MostrarUsuarios = (props) => {
                                             <span className="h6">{item.correo}</span>
                                         </div>
 
-                                        {item.isAdmin === 1 ?
+                                        {item.rol === 1 ?
                                             <div className="col-5 p-3 justify-content-center">
                                                 <h6>🔰 Administrador</h6>
                                             </div>
