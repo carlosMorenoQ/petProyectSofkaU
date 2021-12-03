@@ -25,7 +25,7 @@ public class ControllerStorage {
         return serviceStorage.save(modelStorage);
     }
 
-        @DeleteMapping(value = "/Storage/Delete/{idPokemon}/{idUsuario}")
+    @DeleteMapping(value = "/Storage/Delete/{idPokemon}/{idUsuario}")
     public void delete(@PathVariable("idPokemon")Long idPokemon, @PathVariable("idUsuario")Long idUsuario){
         serviceStorage.delete(idPokemon, idUsuario);
     }

@@ -1,6 +1,7 @@
 package co.com.sofkau.backend.storage;
 
 import co.com.sofkau.backend.cuenta.ModelCuenta;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -16,7 +17,7 @@ public class ModelStorage {
     @Column(name="poke_id")
     private Long pokeId;
 
-//    @JsonBackReference
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="id_cuenta")
     private ModelCuenta modelCuenta;

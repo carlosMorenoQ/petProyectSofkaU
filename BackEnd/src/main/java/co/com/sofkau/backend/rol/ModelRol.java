@@ -20,8 +20,8 @@ public class ModelRol {
     @Column(name = "nombre_rol")
     private String nombreRol;
 
-    @JsonIgnore
     /*@JsonManagedReference*/
+    @JsonIgnore
     @OneToMany(mappedBy = "modelRol", cascade = CascadeType.ALL,  orphanRemoval = true)
     private List<ModelCuenta> modelCuentas;
 

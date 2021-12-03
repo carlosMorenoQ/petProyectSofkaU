@@ -3,6 +3,7 @@ package co.com.sofkau.backend.cuenta;
 import co.com.sofkau.backend.rol.ModelRol;
 import co.com.sofkau.backend.storage.ModelStorage;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -37,9 +38,9 @@ public class ModelCuenta {
     @JoinColumn(name="id_rol")
     private ModelRol modelRol;
 
-    @JsonIgnore
-//    @JsonManagedReference
-    @OneToMany(mappedBy = "modelCuenta", cascade = CascadeType.ALL,  orphanRemoval = true)
+//    @JsonIgnore
+    @JsonManagedReference
+    @OneToMany(mappedBy = "modelCuenta", cascade = CascadeType.ALL)//,  orphanRemoval = true
     private List<ModelStorage> modelStorage;
 
     public ModelCuenta() {
