@@ -4,7 +4,8 @@
 
 ## Descripcion:
 
-Se realizo una aplicacion de pokemoncon el fin de registrarse, iniciar sesion y coleccionar pokemones
+Se realizo una aplicacion de pokemon basandose en la API publica https://pokeapi.co/ con el fin de registrarse, 
+iniciar sesion y coleccionar pokemones
 podemos verificar los pokemones que tenemos almacenados, los pokemones se generan al azar si se toma
 un pokemone tiene una probabilidad para atraparlo, si el storage o pokedex tiene 6 pokemones no podra
 atrapar mas a menos que liberemos uno o mas pokemones.
