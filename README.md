@@ -3,11 +3,11 @@
 ## Descripcion:
 
 Se realizo una aplicacion de pokemoncon el fin de registrarse, iniciar sesion y coleccionar pokemones
-podemos verificar los pokemones que tenemos almacenados, los pokemones se generan al azar y a la vez
-tienen una probabilidad para atraparlos, si ademas mi storage o pokedex tiene 6 pokemones no podremos
-atrapar mas, a menos que liberemos algun pokemon.
+podemos verificar los pokemones que tenemos almacenados, los pokemones se generan al azar si se toma
+un pokemone tiene una probabilidad para atraparlo, si el storage o pokedex tiene 6 pokemones no podra
+atrapar mas a menos que liberemos uno o mas pokemones.
 
-Tambien se crearon roles de usuario, de momento solo dos, que pueden ser escalables
+Se crearon roles de usuario, de momento solo dos, que pueden ser escalables
 
 - El perfil Admin o maestro:
   Tiene acceso al CRUD de usuarios, puede cambiar parametros de todos los usuarios y a su vez puede
@@ -23,10 +23,10 @@ Tambien se crearon roles de usuario, de momento solo dos, que pueden ser escalab
 El backend se centro en realizar una API-Rest de consumo a traves de una BD relacional, usando MySql
 y spring-boot.
 
-### Perspectiva Back-end
+### Perspectiva Front-end
 
 El frontend se centro en el consumo de esta API, se crearon las UI y UX usando React y Redux para el
-manejo de los estados globales y consumo de la API-Rest tambien se validaron rutas privadas.
+manejo de los estados globales y consumo de la API-Rest, tambien se validaron rutas privadas.
 
 ## Despliegue CRUD Usuarios:
 
