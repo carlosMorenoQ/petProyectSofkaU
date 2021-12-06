@@ -1,9 +1,12 @@
 package co.com.sofkau.backend.cuenta;
 
 import co.com.sofkau.backend.dto.Usuario;
+import co.com.sofkau.backend.rol.ModelRol;
+import co.com.sofkau.backend.rol.ServiceRol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,6 +18,9 @@ public class ServiceCuenta {
     @Autowired
     RepositoryCuenta repositoryCuenta;
 
+    @Autowired
+    ServiceRol serviceRol;
+
     public Set<Usuario> list(){
         return StreamSupport
                 .stream(repositoryCuenta.findAll().spliterator(), false)
@@ -24,10 +30,29 @@ public class ServiceCuenta {
     }
 
     public Usuario save(ModelCuenta modelCuenta){
-        Long idRolBeforeUpdating = modelCuenta.getModelRol().getIdRol();
+
+        System.out.println("Aqui arranco el servicio");
+        List<ModelRol> roles = (List<ModelRol>) serviceRol.list();
+        System.out.println(roles.size());
+
+        if(roles.isEmpty()) {
+
+            System.out.println("Detecto lista vacia y va a agregar roles");
+
+            ModelRol rolAdmin = new ModelRol(1L, "admin");
+            ModelRol rolDefault = new ModelRol(0L, "default");
+
+            System.out.println("Id default:" + rolDefault.getIdRol());
+
+            serviceRol.save(rolDefault);
+            serviceRol.save(rolAdmin);
+        }
+
+        System.out.println("Pasamos la validacion");
+
         ModelCuenta modelCuenta1= repositoryCuenta.save(modelCuenta);
         return new Usuario(modelCuenta1.getId(), modelCuenta1.getNombre(), modelCuenta1.getApellido(),
-                modelCuenta1.getEdad(), modelCuenta.getCorreo(), modelCuenta1.getPassword(),idRolBeforeUpdating);
+                modelCuenta1.getEdad(), modelCuenta.getCorreo(), modelCuenta1.getPassword(),modelCuenta1.getModelRol().getIdRol());
     }
 
     public void delete(Long id){

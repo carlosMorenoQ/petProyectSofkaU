@@ -13,7 +13,6 @@ import java.util.Set;
 public class ModelRol {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rol")
     private Long idRol;
 
@@ -22,7 +21,7 @@ public class ModelRol {
 
     /*@JsonManagedReference*/
     @JsonIgnore
-    @OneToMany(mappedBy = "modelRol", cascade = CascadeType.ALL,  orphanRemoval = true)
+    @OneToMany(mappedBy = "modelRol", cascade = CascadeType.ALL)
     private List<ModelCuenta> modelCuentas;
 
     public ModelRol() {
@@ -30,6 +29,11 @@ public class ModelRol {
 
     public ModelRol(Long idRol) {
         this.idRol = idRol;
+    }
+
+    public ModelRol(Long idRol, String nombreRol) {
+        this.idRol = idRol;
+        this.nombreRol = nombreRol;
     }
 
     public Long getIdRol() {
